@@ -3,17 +3,16 @@ export default {
   name: "App",
   data(){
     return{
-      name: "Rahat",
-      city: "Chittagong",
-      country: "Bangladesh"
+      headingId: "heading",
+      isDisabled: false
     }
   }
 }
 </script>
 
 <template>
-  <div>{{ name }} {{ city }}</div>
-  <div v-text="country"></div>
+  <h2 v-bind:id="headingId">Heading</h2>
+  <button v-bind:disabled="isDisabled">Bind</button>
 </template>
 
 <style scoped>
