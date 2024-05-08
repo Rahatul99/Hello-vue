@@ -4,7 +4,8 @@ export default {
   data(){
     return{
       headingId: "heading",
-      isDisabled: false
+      isDisabled: false,
+      status: "danger"
     }
   }
 }
@@ -13,6 +14,9 @@ export default {
 <template>
   <h2 v-bind:id="headingId">Heading</h2>
   <button v-bind:disabled="isDisabled">Bind</button>
+  <h1 class="underline">underline text</h1>
+  <!-- dynamic class property is below -->
+  <h2 v-bind:class="status">Status</h2>
 </template>
 
 <style scoped>
@@ -23,6 +27,12 @@ header {
 .logo {
   display: block;
   margin: 0 auto 2rem;
+}
+.danger{
+  color: red;
+}
+.underline{
+  text-decoration: underline ;
 }
 
 @media (min-width: 1024px) {
