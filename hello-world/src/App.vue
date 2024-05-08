@@ -5,7 +5,10 @@ export default {
     return{
       headingId: "heading",
       isDisabled: false,
-      status: "danger"
+      status: "danger",
+      isPromoted: true,
+      isNew: false,
+      isSoldOut: true
     }
   }
 }
@@ -16,14 +19,25 @@ export default {
   <button v-bind:disabled="isDisabled">Bind</button>
   <h1 class="underline">underline text</h1>
   <!-- dynamic class property is below -->
-  <h2 v-bind:class="status">Status</h2>
+  <h2 v-bind:class="status">Status</h2> 
+  <h2 v-bind:class="isPromoted && 'promoted'">Promote d Text</h2>
+  <h2 v-bind:class="isSoldOut ? 'sold-out' : 'new'">isSoldOut ? movie</h2>
+  <h2 v-bind:class="['new', 'promoted']">newly promoted movie</h2>
+
+  <h2 v-bind:class="[isPromoted && 'promoted', isSoldOut ? 'sold-out' : 'new']"></h2>
 </template>
 
-<style scoped>
+<style scoped>  
 header {
   line-height: 1.5;
 }
 
+.new{
+  color: green;
+}
+.sold-out{
+  color: red
+}
 .logo {
   display: block;
   margin: 0 auto 2rem;
@@ -33,6 +47,9 @@ header {
 }
 .underline{
   text-decoration: underline ;
+}
+.promoted{
+  font-style: italic;
 }
 
 @media (min-width: 1024px) {
