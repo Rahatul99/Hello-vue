@@ -3,28 +3,28 @@ export default {
   name: "App",
   data(){
     return{
-      headingId: "heading",
-      isDisabled: false,
-      status: "danger",
-      isPromoted: true,
-      isNew: false,
-      isSoldOut: true
+      num: -1,
+      display: true,
+      showElement: false
     }
   }
 }
 </script>
 
 <template>
-  <h2 :id="headingId">Heading</h2>
-  <button  :disabled="isDisabled">Bind</button>
-  <h1 class="underline">underline text</h1>
-  <!-- dynamic class property is below -->
-  <h2 :class="status">Status</h2> 
-  <h2 :class="isPromoted && 'promoted'">Promote d Text</h2>
-  <h2 :class="isSoldOut ? 'sold-out' : 'new'">isSoldOut ? movie</h2>
-  <h2 :class="['new', 'promoted']">newly promoted movie</h2>
+  <h2 v-if="num === 0">The number is zero</h2>
+  <h2 v-else-if="num < 0">This is the negative number</h2>
+  <h2 v-else>The number is not zero </h2>
 
-  <h2  :class="[isPromoted && 'promoted', isSoldOut ? 'sold-out' : 'new']"></h2>
+  <template v-if="display">
+    <!-- <div>Hello world</div>
+    <div>Hi world</div>
+    <div>Greetings world</div> -->
+    <br>
+
+    <h2 v-show="showElement">Using v-show</h2>
+    <h2 v-if="showElement">Using v-if</h2>
+  </template>
 </template>
 
 <style scoped>  
