@@ -15,16 +15,16 @@ export default {
 </script>
 
 <template>
-  <h2 v-bind:id="headingId">Heading</h2>
-  <button v-bind:disabled="isDisabled">Bind</button>
+  <h2 :id="headingId">Heading</h2>
+  <button  :disabled="isDisabled">Bind</button>
   <h1 class="underline">underline text</h1>
   <!-- dynamic class property is below -->
-  <h2 v-bind:class="status">Status</h2> 
-  <h2 v-bind:class="isPromoted && 'promoted'">Promote d Text</h2>
-  <h2 v-bind:class="isSoldOut ? 'sold-out' : 'new'">isSoldOut ? movie</h2>
-  <h2 v-bind:class="['new', 'promoted']">newly promoted movie</h2>
+  <h2 :class="status">Status</h2> 
+  <h2 :class="isPromoted && 'promoted'">Promote d Text</h2>
+  <h2 :class="isSoldOut ? 'sold-out' : 'new'">isSoldOut ? movie</h2>
+  <h2 :class="['new', 'promoted']">newly promoted movie</h2>
 
-  <h2 v-bind:class="[isPromoted && 'promoted', isSoldOut ? 'sold-out' : 'new']"></h2>
+  <h2  :class="[isPromoted && 'promoted', isSoldOut ? 'sold-out' : 'new']"></h2>
 </template>
 
 <style scoped>  
