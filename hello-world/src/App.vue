@@ -3,7 +3,8 @@ export default {
   name: "App",
   data() {
     return {
-      baseMultiplier: 5,
+      name: "Rahat",
+      count: 0,
     };
   },
   methods: {
@@ -13,15 +14,28 @@ export default {
     multiply(num) {
       return num * this.baseMultiplier;
     },
+    increment(num) {
+      this.count += num;
+    },
+    decrement(num) {
+      this.count -= num;
+    },
+    changeName(event) {
+      this.name = "Batman";
+      console.log(event);
+    },
   },
 };
 </script>
 
 <template>
   <div>
-    <!-- {{ 2 * 5 + 3 }}
-    add method: {{ add(5, 5, 5) }} add method: {{ add(6, 6, 6) }} -->
-    {{ multiply(2) }}
+    <h1>{{ name }}</h1>
+    <button @:mouseover="changeName">Click me</button>
+
+    <h1>{{ count }}</h1>
+    <button @:click="increment(5)">Increment</button>
+    <button @:click="decrement(5)">Decrement</button>
   </div>
 </template>
 
