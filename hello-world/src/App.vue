@@ -1,24 +1,26 @@
 <template>
   <div>
-    <Greet name="abc" heroName="superman" />
-    <Greet name="def" heroName="superMan" />
-    <Greet name="ghi" heroName="BatMan" />
-    <Greet :name="name" :heroName="channel" />
+    <h3>App component userName {{ name }}</h3>
+    <ComponentC />
   </div>
 </template>
 
 <script>
-import Greet from "./components/Greet.vue";
+import ComponentC from "./components/ComponentC.vue";
 
 export default {
   name: "App",
   components: {
-    Greet,
+    ComponentC,
   },
   data() {
     return {
-      name: "Dynamic",
-      channel: "Props",
+      name: "Rahatul Islam",
+    };
+  },
+  provide() {
+    return {
+      userName: this.name,
     };
   },
 };

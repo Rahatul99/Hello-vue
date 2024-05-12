@@ -1,4 +1,4 @@
-<template>
+<!-- <template>
   <h2>Hello {{ name }} and {{ heroName }}</h2>
 </template>
 
@@ -6,4 +6,4 @@
 export default { name: "Greet", props: ["name", "heroName"] };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped></style> -->
