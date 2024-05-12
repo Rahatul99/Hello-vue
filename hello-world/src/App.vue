@@ -1,65 +1,25 @@
 <template>
-  <h2>Volume tracker</h2>
-  <h3>Current volume - {{ volume }}</h3>
   <div>
-    <button @click="volume += 2">Increase</button>
-    <button @click="volume -= 2">Decrease</button>
-  </div>
-  <input type="text" v-model="movie" />
-  <input type="text" v-model="movieInfo.title" />
-  <input type="text" v-model="movieInfo.actor" />
-
-  <div>
-    <button @click="movieList.push('Iron-man')">Add movie</button>
+    <Greet name="abc" heroName="superman" />
+    <Greet name="def" heroName="superMan" />
+    <Greet name="ghi" heroName="BatMan" />
+    <Greet :name="name" :heroName="channel" />
   </div>
 </template>
 
 <script>
+import Greet from "./components/Greet.vue";
+
 export default {
   name: "App",
+  components: {
+    Greet,
+  },
   data() {
     return {
-      volume: 0,
-      movie: "Batman",
-      movieInfo: {
-        title: "",
-        actor: "",
-      },
-      movieList: ["Batman", "Superman"],
+      name: "Dynamic",
+      channel: "Props",
     };
-  },
-  methods: {},
-  computed: {},
-  watch: {
-    volume(newValue, oldValue) {
-      if (newValue > oldValue && newValue === 16) {
-        alert(
-          "Listening to high volume for long time may damage you hearing.."
-        );
-      }
-    },
-    // movie(newValue) {
-    //   console.log("hello world", newValue);
-    // },
-    movie: {
-      handler(newValue) {
-        console.log("called the watch handler", newValue);
-      },
-      immediate: true,
-    },
-    movieInfo: {
-      handler(newValue) {
-        console.log("called the movieInfo", newValue.title, newValue.actor);
-      },
-      // immediate: true,  here is immediate dosen't works cause of it is a nested property and watchers dosen't work within the nested property
-      deep: true,
-    },
-    movieList: {
-      handler(newValue) {
-        console.log(newValue, "movie list");
-      },
-      deep: true,
-    },
   },
 };
 </script>
