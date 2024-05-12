@@ -1,43 +1,68 @@
+<template>
+  <h2>Volume tracker</h2>
+  <h3>Current volume - {{ volume }}</h3>
+  <div>
+    <button @click="volume += 2">Increase</button>
+    <button @click="volume -= 2">Decrease</button>
+  </div>
+  <input type="text" v-model="movie" />
+  <input type="text" v-model="movieInfo.title" />
+  <input type="text" v-model="movieInfo.actor" />
+
+  <div>
+    <button @click="movieList.push('Iron-man')">Add movie</button>
+  </div>
+</template>
+
 <script>
 export default {
   name: "App",
   data() {
     return {
-      name: "Rahat",
-      count: 0,
+      volume: 0,
+      movie: "Batman",
+      movieInfo: {
+        title: "",
+        actor: "",
+      },
+      movieList: ["Batman", "Superman"],
     };
   },
-  methods: {
-    add(a, b, c) {
-      return a + b + c;
+  methods: {},
+  computed: {},
+  watch: {
+    volume(newValue, oldValue) {
+      if (newValue > oldValue && newValue === 16) {
+        alert(
+          "Listening to high volume for long time may damage you hearing.."
+        );
+      }
     },
-    multiply(num) {
-      return num * this.baseMultiplier;
+    // movie(newValue) {
+    //   console.log("hello world", newValue);
+    // },
+    movie: {
+      handler(newValue) {
+        console.log("called the watch handler", newValue);
+      },
+      immediate: true,
     },
-    increment(num) {
-      this.count += num;
+    movieInfo: {
+      handler(newValue) {
+        console.log("called the movieInfo", newValue.title, newValue.actor);
+      },
+      // immediate: true,  here is immediate dosen't works cause of it is a nested property and watchers dosen't work within the nested property
+      deep: true,
     },
-    decrement(num) {
-      this.count -= num;
-    },
-    changeName(event) {
-      this.name = "Batman";
-      console.log(event);
+    movieList: {
+      handler(newValue) {
+        console.log(newValue, "movie list");
+      },
+      deep: true,
     },
   },
 };
 </script>
-
-<template>
-  <div>
-    <h1>{{ name }}</h1>
-    <button @:mouseover="changeName">Click me</button>
-
-    <h1>{{ count }}</h1>
-    <button @:click="increment(5)">Increment</button>
-    <button @:click="decrement(5)">Decrement</button>
-  </div>
-</template>
 
 <style scoped>
 header {
