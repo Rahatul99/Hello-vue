@@ -1,18 +1,17 @@
 <template>
-  <NameList>
-    <template v-slot:default="slotProps"
-      >FullName: {{ slotProps.firstName }} {{ slotProps.lastName }}
-    </template>
-  </NameList>
+  <div>
+    <h4>App component text</h4>
+    <ChildStyles />
+  </div>
 </template>
 
 <script>
-import NameList from "./components/NameList.vue";
+import ChildStyles from "./components/ChildStyles.vue";
 
 export default {
   name: "App",
   components: {
-    NameList,
+    ChildStyles,
   },
   data() {
     return {};
@@ -62,5 +61,8 @@ header {
     place-items: flex-start;
     flex-wrap: wrap;
   }
+}
+h4 {
+  color: red;
 }
 </style>
