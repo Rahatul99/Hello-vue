@@ -5,6 +5,18 @@
     <Card>card content 2</Card>
     <Card><img src="https://picsum.photos/200" /></Card>
   </div>
+
+  <Card>
+    <template v-slot:header>
+      <h3>Header</h3>
+    </template>
+    <template v-slot:default>
+      <img src="https://picsum.photos/200" />
+    </template>
+    <template v-slot:footer>
+      <button>View details</button>
+    </template>
+  </Card>
 </template>
 
 <script>
