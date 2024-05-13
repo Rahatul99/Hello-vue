@@ -1,29 +1,24 @@
 <template>
   <div>
-    <button @click="showPopup = true">Show popup</button>
-    <Popup v-show="showPopup" @close="closePopup" />
+    <Card></Card>
+    <Card>card content 1</Card>
+    <Card>card content 2</Card>
+    <Card><img src="https://picsum.photos/200" /></Card>
   </div>
 </template>
 
 <script>
-import Popup from "./components/Popup.vue";
+import Card from "./components/Card.vue";
 
 export default {
   name: "App",
   components: {
-    Popup,
+    Card,
   },
   data() {
-    return {
-      showPopup: false,
-    };
+    return {};
   },
-  methods: {
-    closePopup(name) {
-      this.showPopup = false;
-      console.log(name, "name");
-    },
-  },
+  method: {},
 };
 </script>
 
