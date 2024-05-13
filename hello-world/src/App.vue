@@ -1,31 +1,18 @@
 <template>
-  <div>
-    <Card></Card>
-    <Card>card content 1</Card>
-    <Card>card content 2</Card>
-    <Card><img src="https://picsum.photos/200" /></Card>
-  </div>
-
-  <Card>
-    <template v-slot:header>
-      <h3>Header</h3>
+  <NameList>
+    <template v-slot:default="slotProps"
+      >FullName: {{ slotProps.firstName }} {{ slotProps.lastName }}
     </template>
-    <template v-slot:default>
-      <img src="https://picsum.photos/200" />
-    </template>
-    <template v-slot:footer>
-      <button>View details</button>
-    </template>
-  </Card>
+  </NameList>
 </template>
 
 <script>
-import Card from "./components/Card.vue";
+import NameList from "./components/NameList.vue";
 
 export default {
   name: "App",
   components: {
-    Card,
+    NameList,
   },
   data() {
     return {};
