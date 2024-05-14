@@ -1,20 +1,14 @@
 <template>
-  <DemoOne />
-  <DemoTwo />
-  <Methods />
+  <Computed />
 </template>
 
 <script>
-import DemoOne from "./components/DemoOne.vue";
-import DemoTwo from "./components/DemoTwo.vue";
-import Methods from "./components/Methods.vue";
+import Computed from "./components/Computed.vue";
 
 export default {
   name: "App",
   components: {
-    DemoOne,
-    DemoTwo,
-    Methods,
+    Computed,
   },
   data() {
     return {};
