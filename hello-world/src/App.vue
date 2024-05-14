@@ -1,15 +1,13 @@
 <template>
-  <Teleport to="#portal-root">
-    <Portal />
-  </Teleport>
+  <TemplateRef />
 </template>
 
 <script>
-import Portal from "./components/Portal.vue";
+import TemplateRef from "./components/TemplateRef.vue";
 export default {
   name: "App",
   components: {
-    Portal,
+    TemplateRef,
   },
   data() {
     return {};
